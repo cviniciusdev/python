@@ -1,0 +1,24 @@
+import json
+
+resultado = ''
+def editar_tarefas(acao, lista=None):
+    global resultado
+    
+    if lista is None:
+        lista = []        
+
+    if acao is not None:
+        if acao == 'desfazer':
+            del lista.pop()
+        else:
+            lista.append(acao)
+        
+    return lista
+
+
+lista = []
+
+while True:
+    acao = input('Digite uma tarefa ou ação: ')
+    editar_tarefas(acao, lista)
+    print(lista)
